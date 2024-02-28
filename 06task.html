@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    //a) Write a constructor for the class Movie, which takes a String representing the title of the movie, a String representing the studio, and a String representing the rating as its arguments, and sets the respective class properties to these values.
+
+        class movie { 
+            constructor(title, studio, rating) { 
+            this.title = title; 
+            this.studio = studio; 
+            this.rating = rating; 
+            } 
+        }
+        const movieDetails = new movie("Animal","Netflix", "PG-18");
+        console.log(movieDetails);
+
+    //b) The constructor for the class Movie will set the class property rating to "PG" as default when no rating is provided.
+
+        class movies { 
+            constructor(title, studio, rating = "PG") { 
+            this.title = title; 
+            this.studio =  studio; 
+            this.rating = rating; 
+            } 
+        }
+
+        const movie1 = new movies("Animal","Netflix");
+        console.log(movie1);
+
+        const movie2 = new movies("Salaar","Amazon","PG-14");
+        console.log(movie2);
+
+    //c) Write a method getPG, which takes an array of base type Movie as its argument, and returns a new array of only those movies in the input array with a rating of "PG". You may assume the input array is full of Movie instances. The returned array need not be full.
+
+    class Movie1 {
+    constructor(title, studio, rating) {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+    }
+
+    static getPG(input) {
+        let out = input.filter(movie => movie.rating === "PG");
+        return out;
+        }
+    }
+
+    let movies1 = new Movie1("Animal", "Netlix", "PG");
+    let movies2 = new Movie1("Salaar", "Amazon", "PG");
+    let movies3 = new Movie1("Dune", "Hotstar", "V");
+    let movies4 = new Movie1("Zombie", "Disney", "PG-18");
+    let movies5 = new Movie1("Pizza", "Volarant", "PG");
+
+    let moviesArray = [movies1, movies2, movies3, movies4, movies5];
+    let pgMovies = Movie1.getPG(moviesArray);
+    console.log(pgMovies);
+//d) Write a piece of code that creates an instance of the class Movie with the title “Casino Royale”, the studio “Eon Productions”, and the rating “PG­13”
+    class Movieee {
+        constructor(title, studio, rating) {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
+        }
+    }
+    
+    let casinoRoyale = new Movieee("Casino Royale", "Eon Productions", "PG-13");
+    console.log(casinoRoyale);
+
+    //Circle
+
+    class Circle {
+        constructor(radius = 1.0, color = "red") {
+          this._radius = radius;
+          this._color = color;
+        }
+      
+        get radius() {
+          return this._radius;
+        }
+      
+        set radius(radius) {
+          this._radius = radius;
+        }
+      
+        get color() {
+          return this._color;
+        }
+      
+        set color(color) {
+          this._color = color;
+        }
+      
+        toString() {
+          return `Circle [radius = ${this._radius} , color = ${this._color}]`;
+        }
+      
+        getArea() {
+          return Math.PI * Math.pow(this._radius, 2);
+        }
+      
+        getCircumference() {
+          return 2 * Math.PI * this._radius;
+        }
+      }
+      
+      const c1 = new Circle(2, "green");
+      const c2 = new Circle(5, "Yellow");
+      
+      console.log(c1.toString());
+      console.log("Area:", c1.getArea());
+      console.log("Circumference:", c1.getCircumference());
+      
+      console.log(c2.toString());
+      console.log("Area:", c2.getArea());
+      console.log("Circumference:", c2.getCircumference());
+
+
+    //
+    class Person {
+        constructor(firstName, lastName, age, phone, email, state){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.phone=phone;
+            this.email=email;
+            this.state = state;
+        }
+        getPersonDetails(){
+            return `Name: ${this.firstName} ${this.lastName}
+            age: ${this.age}
+            phone: ${this.phone}
+            email: ${this.email}
+            state: ${this.state}`;
+        }
+    }
+    let person1 = new Person("Ranbir", "Kapoor",44, "rkapoor@gmail.com", 9344423456, "Mumbai");
+    let person2 = new Person("Prabhas","Raju", 47, "praju@gmail.com", 8765543221, "Yasak");
+    
+    console.log(person1.getPersonDetails());
+    console.log(person2.getPersonDetails());
+
+    </script>
+</body>
+</html>
